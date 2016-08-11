@@ -15,7 +15,7 @@ function realizaProceso(valorCaja1, valorCaja2){
         };
         $.ajax({
                 data:  parametros,
-                url:   'proceso.php',
+                url:   'http://digiseg.com.mx/appdg/proceso.php',
                 type:  'post',
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");
