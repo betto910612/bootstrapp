@@ -1,44 +1,53 @@
-<!DOCTYPE html>
 <html>
+ 
 <head>
-
-	<script type="text/javascript" src="modelo/js/jquery-1.4.2.min.js"></script>
+ <script type="text/javascript" src="modelo/js/jquery-1.4.2.min.js"></script>
 	
-
-
-	<script type="text/javascript">
-	
-$(document).ready(function() {
-	alert("Hola k ase");
-   $.ajax({
-            type: "GET",
-            url: "vista/vw_login.php",
-            data: dataString,
-            success: function(data) {
-                //Cargamos finalmente el contenido deseado
-                $('#Menu').fadeIn(1000).html(data);
-            }
+<title>Ejemplo sencillo de AJAX</title>
+ 
+<script type="text/javascript" src="/js/jquery.js"></script>
+ 
+<script>
+function realizaProceso(valorCaja1, valorCaja2){
+        var parametros = {
+                "valorCaja1" : valorCaja1,
+                "valorCaja2" : valorCaja2
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'proceso.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (response) {
+                        $("#resultado").html(response);
+                }
         });
-     }
-
-	</script>
-	<link rel="stylesheet" type="text/css" href="vista/css/bootstrap.css">
-	<title></title>
-	<meta charset="utf-8">
+}
+</script>
+ 
 </head>
-<body >
-	<div >
-		<div id='Menu'>
-		<!--Menu-->
-
-		<!--end-->
-		</div>
-		<div id='vistaL' class="container">
-		<!--Contenido-->
-			
-		<!--end-->
-		<span id='Mensaje'></span>
-		</div>
-	</div>
+ 
+<body>
+ 
+Introduce valor 1
+ 
+<input type="text" name="caja_texto" id="valor1" value="0"/> 
+ 
+ 
+Introduce valor 2
+ 
+<input type="text" name="caja_texto" id="valor2" value="0"/>
+ 
+Realiza suma
+ 
+<input type="button" href="javascript:;" onclick="realizaProceso($('#valor1').val(), $('#valor2').val());return false;" value="Calcula"/>
+ 
+<br/>
+ 
+Resultado: <span id="resultado">0</span>
+ 
 </body>
+ 
 </html>
