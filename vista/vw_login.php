@@ -13,7 +13,11 @@
 		</div>
 
 		<div class="col-sm-12" style='padding:60px;'>
+<<<<<<< HEAD
 			<a href="vista/vw_header.php" class='col-sm-12 btn btn-primary btn-lg'>Ingresar</a>
+=======
+			<button class='col-sm-12 btn btn-primary btn-lg'>Ingresar</button>
+>>>>>>> origin/master
 		</div>
 	</div>
 </div>
